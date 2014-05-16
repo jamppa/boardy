@@ -18,6 +18,10 @@ public class JsonUtils {
 		return objectMapper.writeValueAsString(obj);
 	}
 	
+	public static <T> T fromJson(String json, Class<T> clazz) throws JsonParseException, JsonMappingException, IOException {
+		return objectMapper.readValue(json, clazz);
+	}
+	
 	public static String fixture(String filename) throws IOException {
 		return Resources.toString(Resources.getResource(filename), Charsets.UTF_8);
 	}
