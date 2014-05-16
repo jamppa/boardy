@@ -9,12 +9,16 @@ public class MessageRepository {
 	
 	private final List<Message> messages = Lists.newArrayList();
 	
-	public MessageRepository(List<Message> initialMessages) {
+	public MessageRepository(final List<Message> initialMessages) {
 		this.messages.addAll(initialMessages);
 	}
 
 	public List<Message> findAll() {
 		return Lists.newArrayList(messages);
+	}
+
+	public void save(final Message message) {
+		this.messages.add(message);
 	}
 
 }
