@@ -12,7 +12,7 @@ public class MessageResource {
 	}
 
 	public void createMessage(MessagePojo messagePojo) {
-		
+		messageRepository.save(messagePojo.asMessage());
 	}
 
 }

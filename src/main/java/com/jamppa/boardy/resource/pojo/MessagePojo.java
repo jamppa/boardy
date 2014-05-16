@@ -12,8 +12,12 @@ public class MessagePojo {
 	public String sender;
 	public String url;
 	
-	public Message asMessage() throws MalformedURLException {
-		return new Message(title, content, sender, new URL(url));
+	public Message asMessage() {
+		try {
+			return new Message(title, content, sender, new URL(url));
+		} catch (MalformedURLException e) {
+			throw new IllegalStateException(e);
+		}
 	}
 	
 }
