@@ -1,5 +1,7 @@
 package com.jamppa.boardy;
 
+import com.google.common.collect.Lists;
+import com.jamppa.boardy.repository.MessageRepository;
 import com.jamppa.boardy.resource.MessageResource;
 
 import io.dropwizard.Application;
@@ -19,7 +21,11 @@ public class BoardyApplication extends Application<BoardyConfiguration>{
 
 	@Override
 	public void run(BoardyConfiguration conf, Environment env) throws Exception {
-		env.jersey().register(new MessageResource());
+		env.jersey().register(new MessageResource(messageRepository()));
+	}
+
+	private MessageRepository messageRepository() {
+		return new MessageRepository(Lists.newArrayList());
 	}
 
 }
