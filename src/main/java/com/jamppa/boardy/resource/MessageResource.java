@@ -11,6 +11,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.jamppa.boardy.repository.MessageRepository;
 import com.jamppa.boardy.resource.pojo.MessagePojo;
+import com.jamppa.boardy.resource.pojo.ThinMessagePojo;
 
 @Path("/messages")
 @Produces(MediaType.APPLICATION_JSON)
@@ -30,6 +31,10 @@ public class MessageResource {
 	@GET
 	public List<MessagePojo> listMessages() {
 		return messageRepository.findAll().asPojos();
+	}
+
+	public List<ThinMessagePojo> listThinMessages() {
+		return messageRepository.findAll().asThinPojos();
 	}
 
 }

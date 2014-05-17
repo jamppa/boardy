@@ -18,6 +18,7 @@ import com.jamppa.boardy.model.Message;
 import com.jamppa.boardy.model.MessageList;
 import com.jamppa.boardy.repository.MessageRepository;
 import com.jamppa.boardy.resource.pojo.MessagePojo;
+import com.jamppa.boardy.resource.pojo.ThinMessagePojo;
 
 @RunWith(MockitoJUnitRunner.class)
 public class MessageResourceTest {
@@ -52,6 +53,17 @@ public class MessageResourceTest {
 		when(messageRepository.findAll()).thenReturn(messageList);
 		
 		List<MessagePojo> listOfMessages = messageResource.listMessages();
+		
+		assertThat(listOfMessages, is(messagePojos));
+	}
+	
+	@Test
+	public void shouldReturnListOfThinMessagePojos() {
+		List<ThinMessagePojo> messagePojos = Lists.newArrayList();
+		when(messageList.asThinPojos()).thenReturn(messagePojos);
+		when(messageRepository.findAll()).thenReturn(messageList);
+		
+		List<ThinMessagePojo> listOfMessages = messageResource.listThinMessages();
 		
 		assertThat(listOfMessages, is(messagePojos));
 	}
