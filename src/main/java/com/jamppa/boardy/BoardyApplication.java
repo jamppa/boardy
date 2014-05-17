@@ -15,6 +15,11 @@ public class BoardyApplication extends Application<BoardyConfiguration>{
 	}
 
 	@Override
+	public String getName() {
+		return "boardy-app";
+	}
+	
+	@Override
 	public void initialize(Bootstrap<BoardyConfiguration> bootstrap) {
 		
 	}
