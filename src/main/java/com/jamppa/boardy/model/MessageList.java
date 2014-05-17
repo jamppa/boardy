@@ -20,5 +20,9 @@ public class MessageList {
 				.map(Message::asPojo).collect(toList());
 	}
 
+	public List<Message> get() {
+		return Lists.newArrayList(messages);
+	}
+
 	
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 import com.jamppa.boardy.model.Message;
+import com.jamppa.boardy.model.MessageList;
 
 public class MessageRepository {
 	
@@ -13,8 +14,8 @@ public class MessageRepository {
 		this.messages.addAll(initialMessages);
 	}
 
-	public List<Message> findAll() {
-		return Lists.newArrayList(messages);
+	public MessageList findAll() {
+		return new MessageList(messages);
 	}
 
 	public void save(final Message message) {

@@ -3,13 +3,12 @@ package com.jamppa.boardy.repository;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-import java.util.List;
-
 import org.junit.Before;
 import org.junit.Test;
 
 import com.google.common.collect.Lists;
 import com.jamppa.boardy.model.Message;
+import com.jamppa.boardy.model.MessageList;
 
 public class MessageRepositoryTest {
 	
@@ -22,14 +21,14 @@ public class MessageRepositoryTest {
 
 	@Test
 	public void shouldFindAllMessages() {
-		List<Message> messages = messageRepository.findAll();
-		assertThat(messages.size(), is(1));
+		MessageList messageList = messageRepository.findAll();
+		assertThat(messageList.get().size(), is(1));
 	}
 	
 	@Test
 	public void shouldSaveNewMessage() {
 		messageRepository.save(Message.newEmpty());
-		assertThat(messageRepository.findAll().size(), is(2));
+		assertThat(messageRepository.findAll().get().size(), is(2));
 	}
 	
 }
