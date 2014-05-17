@@ -55,7 +55,18 @@ public class MessageResourceAcceptanceTest {
 	public void shouldGETListOfMessagePojos() {
 		
 		ClientResponse response = 
-				client.resource("http://localhost:8080/api/messages")
+				client.resource("http://localhost:8080/api/v2/messages")
+				.accept(MediaType.APPLICATION_JSON)
+				.get(ClientResponse.class);
+		
+		assertThat(response.getStatus(), is(200));
+	}
+	
+	@Test
+	public void shouldGETListOfThinMessagePojos() {
+		
+		ClientResponse response = 
+				client.resource("http://localhost:8080/api/v1/messages")
 				.accept(MediaType.APPLICATION_JSON)
 				.get(ClientResponse.class);
 		

@@ -13,8 +13,8 @@ import com.jamppa.boardy.repository.MessageRepository;
 import com.jamppa.boardy.resource.pojo.MessagePojo;
 import com.jamppa.boardy.resource.pojo.ThinMessagePojo;
 
-@Path("/messages")
 @Produces(MediaType.APPLICATION_JSON)
+@Path("/")
 public class MessageResource {
 
 	private final MessageRepository messageRepository;
@@ -24,15 +24,19 @@ public class MessageResource {
 	}
 
 	@POST
+	@Path("/messages")
 	public void createMessage(@Valid MessagePojo messagePojo) {
 		messageRepository.save(messagePojo.asMessage());
 	}
 
 	@GET
+	@Path("/v2/messages")
 	public List<MessagePojo> listMessages() {
 		return messageRepository.findAll().asPojos();
 	}
 
+	@GET
+	@Path("/v1/messages")
 	public List<ThinMessagePojo> listThinMessages() {
 		return messageRepository.findAll().asThinPojos();
 	}
