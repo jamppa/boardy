@@ -30,6 +30,7 @@ public class MessageResource {
 	}
 
 	@GET
+	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	@Path("/v2/messages")
 	public List<MessagePojo> listMessages() {
 		return messageRepository.findAll().asPojos();

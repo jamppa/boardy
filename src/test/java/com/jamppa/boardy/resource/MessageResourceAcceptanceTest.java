@@ -72,6 +72,17 @@ public class MessageResourceAcceptanceTest {
 		
 		assertThat(response.getStatus(), is(200));
 	}
+	
+	@Test
+	public void shouldGetListOfMessagePojosAsXml() {
+		
+		ClientResponse response = 
+				client.resource("http://localhost:8080/api/v2/messages")
+				.accept(MediaType.APPLICATION_XML)
+				.get(ClientResponse.class);
+		
+		assertThat(response.getStatus(), is(200));
+	}
 
 	private MessagePojo invalidMessagePojo() throws Exception {
 		return fromJson(jsonFixture("fixtures/invalid_message.json"), MessagePojo.class);

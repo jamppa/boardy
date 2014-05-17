@@ -3,10 +3,13 @@ package com.jamppa.boardy.resource.pojo;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import org.hibernate.validator.constraints.Length;
 
 import com.jamppa.boardy.model.Message;
 
+@XmlRootElement
 public class MessagePojo {
 	
 	@Length(max = 15)
