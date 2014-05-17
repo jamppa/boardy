@@ -50,6 +50,17 @@ public class MessageResourceAcceptanceTest {
 		
 		assertThat(response.getStatus(), is(422));
 	}
+	
+	@Test
+	public void shouldGETListOfMessagePojos() {
+		
+		ClientResponse response = 
+				client.resource("http://localhost:8080/api/messages")
+				.accept(MediaType.APPLICATION_JSON)
+				.get(ClientResponse.class);
+		
+		assertThat(response.getStatus(), is(200));
+	}
 
 	private MessagePojo invalidMessagePojo() throws Exception {
 		return fromJson(jsonFixture("fixtures/invalid_message.json"), MessagePojo.class);
