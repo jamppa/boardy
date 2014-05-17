@@ -12,6 +12,7 @@ import org.junit.Test;
 
 import com.google.common.collect.Lists;
 import com.jamppa.boardy.resource.pojo.MessagePojo;
+import com.jamppa.boardy.resource.pojo.ThinMessagePojo;
 
 public class MessageListTest {
 	
@@ -29,11 +30,13 @@ public class MessageListTest {
 	@Test
 	public void shouldReturnListOfMessagePojos() {
 		List<MessagePojo> messagePojos = messageList.asPojos();
-		assertPojos(messagePojos, messageList);
-	}
-
-	private void assertPojos(List<MessagePojo> messagePojos, MessageList messageList) {
 		assertThat(messagePojos.size(), is(1));
+	}
+	
+	@Test
+	public void shouldReturnListOfThinMessagePojos() {
+		List<ThinMessagePojo> thinMessagePojos = messageList.asThinPojos();
+		assertThat(thinMessagePojos.size(), is(1));
 	}
 
 }
