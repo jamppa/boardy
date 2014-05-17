@@ -2,6 +2,8 @@ package com.jamppa.boardy.model;
 
 import java.net.URL;
 
+import com.jamppa.boardy.resource.pojo.MessagePojo;
+
 public class Message {
 
 	private final String title;
@@ -34,6 +36,10 @@ public class Message {
 	
 	public static Message newEmpty() {
 		return new Message("", "", "", null);
+	}
+	
+	public MessagePojo asPojo() {
+		return new MessagePojo(this);
 	}
 	
 }
