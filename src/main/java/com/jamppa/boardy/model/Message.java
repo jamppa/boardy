@@ -3,6 +3,7 @@ package com.jamppa.boardy.model;
 import java.net.URL;
 
 import com.jamppa.boardy.resource.pojo.MessagePojo;
+import com.jamppa.boardy.resource.pojo.ThinMessagePojo;
 
 public class Message {
 
@@ -40,6 +41,10 @@ public class Message {
 	
 	public MessagePojo asPojo() {
 		return new MessagePojo(this);
+	}
+
+	public ThinMessagePojo asThinPojo() {
+		return new ThinMessagePojo(this);
 	}
 	
 }
