@@ -1,5 +1,7 @@
 package com.jamppa.boardy.resource;
 
+import java.util.List;
+
 import javax.validation.Valid;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -22,6 +24,10 @@ public class MessageResource {
 	@POST
 	public void createMessage(@Valid MessagePojo messagePojo) {
 		messageRepository.save(messagePojo.asMessage());
+	}
+
+	public List<MessagePojo> listMessages() {
+		return messageRepository.findAll().asPojos();
 	}
 
 }
