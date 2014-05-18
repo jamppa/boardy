@@ -27,5 +27,7 @@ Boardy message v1 (only json supported):
 
 Boardy message v2 (json and xml supported)
 `curl -H "Accept: application/json" -X GET http://localhost:8080/api/v2/messages`
+
 or
+
 `curl -H "Accept: application/xml" -X GET http://localhost:8080/api/v2/messages`
